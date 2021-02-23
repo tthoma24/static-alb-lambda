@@ -40,10 +40,8 @@ CW_METRIC_FLAG_IP_COUNT  = os.environ['CW_METRIC_FLAG_IP_COUNT']
 
 ACTIVE_FILENAME = 'Active IP list of {}.json'.format(ALB_DNS_NAME)
 PENDING_DEREGISTRATION_FILENAME = 'Pending deregisteration IP list of {}.json'.format(ALB_DNS_NAME)
-ACTIVE_IP_LIST_KEY = "{}-active-registered-IPs/{}"\
-	.format(ALB_DNS_NAME, ACTIVE_FILENAME)
-PENDING_IP_LIST_KEY = "{}-pending-deregisteration-IPs/{}"\
-	.format(ALB_DNS_NAME, PENDING_DEREGISTRATION_FILENAME)
+ACTIVE_IP_LIST_KEY = "{}/{}/active.json".format(NLB_TG_ARN, ALB_DNS_NAME)
+PENDING_IP_LIST_KEY = "{}/{}/pending.json".format(NLB_TG_ARN, ALB_DNS_NAME)
 TIME = datetime.strftime(((datetime.utcnow())), '%Y-%m-%d %H:%M:%S')
 
 try:
